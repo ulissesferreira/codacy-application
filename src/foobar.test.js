@@ -25,36 +25,6 @@ let test2 = true
 let test3 = true
 let test4 = true
 
-// Let's see if foobar detects multiples of 3
-let multiplesOf3 = []
-
-for (let i = 1; i <= 33; i++) {
-  multiplesOf3.push(i * 3)
-}
-
-for (let i = 0; i <= 32; i++) {
-  test1 &= (foobar(multiplesOf3[i]) === "Foo" || foobar(multiplesOf3[i]) === "FooBar")
-}
-
-test1 ? 
-  console.log(" Multiples of 3: ✅  Passed ") : 
-  console.log(" Multiples of 3: ❌  Failed ")
-
-// Let's see if foobar detects multiples of 5
-let multiplesOf5 = []
-
-for (let i = 1; i <= 20; i++) {
-  multiplesOf5.push(i * 5)
-}
-
-for (let i = 0; i <= 19; i++) {
-  test2 &= (foobar(multiplesOf5[i]) === "Bar" || foobar(multiplesOf5[i]) === "FooBar")
-}
-
-test2 ? 
-  console.log(" Multiples of 5: ✅  Passed ") : 
-  console.log(" Multiples of 5: ❌  Failed ")
-
 // Let's see if foobar detects multiples of 3 and 5
 let multiplesOf3And5 = []
 
@@ -66,9 +36,37 @@ for (let i = 0; i <= 5; i++) {
   test3 &= (foobar(multiplesOf3And5[i]) === "FooBar")
 }
 
-test3 ? 
-  console.log(" Multiples of 3 and 5: ✅  Passed ") : 
-  console.log(" Multiples of 3 and 5: ❌  Failed ")
+// Let's see if foobar detects multiples of 3 
+// that are not multiple of 3 and 5
+let multiplesOf3 = []
+
+for (let i = 1; i <= 33; i++) {
+  multiplesOf3.push(i * 3)
+}
+
+multiplesOf3 = multiplesOf3.filter((element) => {
+  return !multiplesOf3And5.includes(element)
+})
+
+for (let i = 0; i < multiplesOf3.length; i++) {
+  test1 &= (foobar(multiplesOf3[i]) === "Foo")
+}
+
+// Let's see if foobar detects multiples of 5
+// that are not multiple of 3 and 5
+let multiplesOf5 = []
+
+for (let i = 1; i <= 20; i++) {
+  multiplesOf5.push(i * 5)
+}
+
+multiplesOf5 = multiplesOf5.filter((element) => {
+  return !multiplesOf3And5.includes(element)
+})
+
+for (let i = 0; i < multiplesOf5.length; i++) {
+  test2 &= (foobar(multiplesOf5[i]) === "Bar")
+}
 
 // Let's see if there are no false positives
 // We can't have Foo, Bar or FooBar labels
@@ -89,8 +87,22 @@ for (let i = 0; i <= falsePositives.length; i++) {
   test4 &= foobar(falsePositives[i]) === falsePositives[i]
 }
 
+// Output time
+
+test1 ?
+  console.log(" Multiples of 3: ✅  Passed ") :
+  console.log(" Multiples of 3: ❌  Failed ")
+
+test2 ?
+  console.log(" Multiples of 5: ✅  Passed ") :
+  console.log(" Multiples of 5: ❌  Failed ")
+
+test3 ?
+  console.log(" Multiples of 3 and 5: ✅  Passed ") :
+  console.log(" Multiples of 3 and 5: ❌  Failed ")
+
 test4 ?
-  console.log(" False Positives: ✅  Passed ") :
-  console.log(" False Positives: ❌  Failed ")
+  console.log(" Other Numbers: ✅  Passed ") :
+  console.log(" Other Numbers: ❌  Failed ")
 
 
