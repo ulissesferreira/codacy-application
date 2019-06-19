@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/903194d4bdec4013899f691ae8020236)](https://www.codacy.com/app/ulissesferreira/codacy-application?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ulissesferreira/codacy-application&amp;utm_campaign=Badge_Grade)
+
 # codacy-application
 
 👾 Application exercise for my Codacy Internship application.
