@@ -1,3 +1,18 @@
+/**
+ * For us to test this function we must assume it's logic
+ * is fallible. That means we can't just simply make a similar
+ * function here and see if both results match. The only thing
+ * we can take for granted is the generation of multiples (using n * k).
+ * 
+ * We will generate all the multiples of 3, 5 and 15 (both 3 and 5)
+ * and since we also need to detect false positives (missplaced
+ * Foo, Bar and FooBar labels) we can generate those by eliminating
+ * the previous values from all the possible numbers.
+ * 
+ * Sounds like too much of a hassle (and it is in this situation)
+ * but the principle behind it is important for more complex tests.
+ */
+
 const foobar = require('./foobar')
 
 console.log("")
@@ -56,9 +71,8 @@ test3 ?
   console.log(" Multiples of 3 and 5: ❌  Failed ")
 
 // Let's see if there are no false positives
-// Remember we can't assume our function is right.
-// We need to generate the results in a fireproof 
-// way even if that looks silly.
+// We can't have Foo, Bar or FooBar labels
+// missplaced
 let falsePositives = []
 
 for (let i = 1; i <= 100; i++) {

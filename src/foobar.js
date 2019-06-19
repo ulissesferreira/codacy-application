@@ -1,3 +1,12 @@
+/**
+ * Foobar function. Returns "Foo" if the input number is a 
+ * multiple of 3, returns "Bar" if the input number is a 
+ * multiple of 5, returns "FooBar" if the input number is
+ * a multiple of 3 and 5 simultaneously. If none of these
+ * conditions apply, returns the input number unchanged.
+ * 
+ * @param number - any integer number
+ */
 module.exports = (number) => {
   
   // If the number is divisible by 3 and 5 then
