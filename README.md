@@ -15,8 +15,18 @@ Send us a Git URL or a zip with your solution.
 
 ## 🏃‍ Running
 
-TODO
+To run this application you will need Node.js and Yarn installed. After that is setup all you have to do is clone the repository and run. No extra modules required.
+
+```
+git clone https://github.com/ulissesferreira/codacy-application.git
+cd codacy-application
+yarn start
+```
 
 ## 🚦 Testing
 
-TODO
+Once again we assume you can run this application normally. Follow the running steps first and then come back to this instructions.
+
+```
+yarn test
+```
